@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+          text-align: center;
+          background-color: rgb(242, 208, 242);
+        }
+        input{
+            padding: 10px;
+            margin: 5px;
+        }
+        button{
+            padding: 10px;
+            margin: 5px;
+            background-color: rgb(144, 9, 144);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+
+     
+    <input type="number" id="n1" placeholder="First Number">
+    <br><br>
+    <input type="number" id="n2" placeholder="Second Number">
+    <br><br>
+
+    <button onclick="calculate('+')">Add</button>
+    <button onclick="calculate('-')">Subtract</button>
+    <button onclick="calculate('*')">Multiply</button>
+    <button onclick="calculate('/')">Divide</button>
+
+    <h3 id="result">Result</h3>
+
+    <script>
+        function calculate(op){
+            let a= document.getElementById('n1').value;
+            let b= document.getElementById('n2').value;
+            if(a=="" || b==""){
+                document.getElementById("result").innerHTML=
+                "Enter both numbers"
+                return;
+            }
+            a=Number(a);
+            b=Number(b);
+
+            let r;
+            if(op == '+')
+            r = a+b;
+            else if(op=='-')
+            r=a-b;
+            else if(op=='*')
+            r=a*b;
+            else if (op=='/') {
+                if(b==0){
+                document.getElementById("result").innerHTML = 
+                "Cannot divide by zero"
+                return;
+                }
+                r=a/b;
+            }
+            document.getElementById("result").innerHTML = 
+            "Result: "+r;
+        }
+    </script>
+
+</body>
+</html>
